@@ -1,0 +1,62 @@
+{
+  "chain": {
+    "info-json": "[{\"chain-id\":9426,\"parent-chain-id\":56,\"parent-chain-is-arbitrum\":false,\"chain-name\":\"SPY Chain Mainnet\",\"chain-config\":{\"chainId\":9426,\"homesteadBlock\":0,\"daoForkBlock\":null,\"daoForkSupport\":true,\"eip150Block\":0,\"eip150Hash\":\"0x0000000000000000000000000000000000000000000000000000000000000000\",\"eip155Block\":0,\"eip158Block\":0,\"byzantiumBlock\":0,\"constantinopleBlock\":0,\"petersburgBlock\":0,\"istanbulBlock\":0,\"muirGlacierBlock\":0,\"berlinBlock\":0,\"londonBlock\":0,\"clique\":{\"period\":0,\"epoch\":0},\"arbitrum\":{\"EnableArbOS\":true,\"AllowDebugPrecompiles\":false,\"DataAvailabilityCommittee\":false,\"InitialArbOSVersion\":51,\"InitialChainOwner\":\"0xf43D33b81C42F4a79f4200a676D46802cD563Fbe\",\"GenesisBlockNum\":0,\"MaxCodeSize\":24576,\"MaxInitCodeSize\":49152}},\"rollup\":{\"bridge\":\"0xDCB8b52949E37d459f012EB6D493F61d58e7e0d2\",\"inbox\":\"0x27ac1419Cf54D6a83b1C8B094c4fbBD5F83D5cE3\",\"sequencer-inbox\":\"0x31215737b9EB1dAA1E474C2F29B9af9459B6E41b\",\"rollup\":\"0x29Cfe431C5d431721D38dEB7367B1cad0D14096f\",\"validator-wallet-creator\":\"0xB7FE37712e46F28C8f22Ec4bAA33A09fb8B52BD0\",\"stake-token\":\"0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c\",\"deployed-at\":116329616}}]",
+    "name": "SPY Chain Mainnet"
+  },
+  "parent-chain": {
+    "connection": {
+      "url": "https://YOUR_BSC_RPC_WITH_GETLOGS"
+    }
+  },
+  "http": {
+    "addr": "0.0.0.0",
+    "port": 8449,
+    "api": [
+      "eth",
+      "net",
+      "web3",
+      "arb"
+    ],
+    "vhosts": [
+      "*"
+    ],
+    "corsdomain": [
+      "*"
+    ]
+  },
+  "ws": {
+    "addr": "0.0.0.0",
+    "port": 8548,
+    "api": [
+      "eth",
+      "net",
+      "web3",
+      "arb"
+    ]
+  },
+  "node": {
+    "sequencer": false,
+    "dangerous": {
+      "disable-blob-reader": true
+    },
+    "parent-chain-reader": {
+      "poll-interval": "30s",
+      "use-finality-data": false
+    },
+    "staker": {
+      "enable": false
+    },
+    "batch-poster": {
+      "enable": false
+    }
+  },
+  "execution": {
+    "forwarding-target": "https://rpc.spychain.io",
+    "parent-chain-reader": {
+      "use-finality-data": false
+    },
+    "caching": {
+      "archive": true
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# dependencies
+node_modules/
+package-lock.json
+
+# secrets / local state — NEVER commit
+.env
+.env.*
+!.env.example
+relayer.env
+!relayer.env.example
+.relayer.json
+.state.json
+*.key
+*.pem
+keystore/
+keystores/
+
+# runtime node config (contains operator keys when run as sequencer/validator)
+node-config.json
+
+# os / editor
+.DS_Store
+*.log

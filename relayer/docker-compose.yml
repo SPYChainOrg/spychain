@@ -1,0 +1,13 @@
+# SpyChain auto-claim relayer. Runs next to the nitro node; host network so it can reach the L2 RPC
+# on localhost:8449. node_modules is already installed in this dir (mounted), so it just runs node.
+services:
+  relayer:
+    image: node:20
+    container_name: spychain-relayer
+    working_dir: /app
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - ./:/app
+    env_file: ./relayer.env
+    command: node relayer.mjs

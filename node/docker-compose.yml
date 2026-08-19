@@ -1,0 +1,22 @@
+# Run a SpyChain RPC / full node.
+#
+#   1. Copy node-config.example.json -> node-config.json
+#   2. Set parent-chain.connection.url to your BNB Smart Chain RPC (must serve eth_getLogs; a keyed
+#      provider is recommended — public BSC RPCs rate-limit a continuously-syncing node).
+#   3. docker compose up -d
+#
+# This is a non-sequencing node: it syncs SpyChain state from BNB Smart Chain and forwards user
+# transactions to the public sequencer. It does not need any operator keys.
+services:
+  nitro:
+    image: offchainlabs/nitro-node:v3.11.1-8512b8c
+    restart: unless-stopped
+    command: ["--conf.file=/config/node-config.json"]
+    volumes:
+      - ./node-config.json:/config/node-config.json:ro
+      - nitro-data:/home/user/.arbitrum
+    ports:
+      - "8449:8449"   # http JSON-RPC
+      - "8548:8548"   # ws JSON-RPC
+volumes:
+  nitro-data:
